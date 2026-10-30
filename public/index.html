@@ -3,25 +3,37 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#4f46e5">
+  <meta name="theme-color" content="#5b5bd6">
   <title>My Papers</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%235b5bd6'/><path d='M7 9h6a3 3 0 0 1 3 3v11a2 2 0 0 0-2-2H7zM25 9h-6a3 3 0 0 0-3 3v11a2 2 0 0 1 2-2h7z' fill='none' stroke='white' stroke-width='2' stroke-linejoin='round'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="/style.css">
+  <script>
+    // apply the saved theme before the page paints so it doesn't flash
+    try { const t = JSON.parse(localStorage.getItem('theme')); if (t) document.documentElement.dataset.theme = t; } catch {}
+  </script>
 </head>
 <body>
   <header class="topbar">
-    <button id="menuBtn" class="icon-btn only-mobile" aria-label="Open menu">☰</button>
-    <a href="#" id="homeLink" class="brand">📚 <span>My Papers</span></a>
-    <div class="search-wrap">
-      <input id="search" type="search" placeholder="Search all papers…" autocomplete="off">
-    </div>
+    <button id="menuBtn" class="icon-btn only-mobile" aria-label="Open menu" data-icon="menu"></button>
+    <a href="#" id="homeLink" class="brand">
+      <span class="logo" data-icon="book"></span>
+      <span class="brand-name">My Papers</span>
+    </a>
+    <label class="search-wrap">
+      <span data-icon="search"></span>
+      <input id="search" type="search" placeholder="Search papers, subjects…" autocomplete="off">
+    </label>
+    <button id="themeBtn" class="icon-btn" aria-label="Switch light or dark mode"></button>
   </header>
 
   <div class="layout">
     <aside id="sidebar">
       <div class="side-head">
         <span>Semesters</span>
-        <button id="addSem" class="btn small">+ Semester</button>
+        <button id="addSem" class="btn small soft" data-icon="plus">Semester</button>
       </div>
       <nav id="semList"></nav>
     </aside>
@@ -48,13 +60,13 @@
       <span id="viewerTitle"></span>
       <div class="viewer-actions">
         <a id="viewerOpen" class="btn small ghost" target="_blank" rel="noopener">Open in new tab</a>
-        <a id="viewerDownload" class="btn small ghost">Download</a>
-        <button id="viewerClose" class="icon-btn" aria-label="Close">✕</button>
+        <a id="viewerDownload" class="btn small ghost" data-icon="download">Download</a>
+        <button id="viewerClose" class="icon-btn" aria-label="Close" data-icon="x"></button>
       </div>
     </div>
     <div id="viewerBody"></div>
-    <button id="viewerPrev" class="viewer-nav prev" aria-label="Previous">‹</button>
-    <button id="viewerNext" class="viewer-nav next" aria-label="Next">›</button>
+    <button id="viewerPrev" class="viewer-nav prev" aria-label="Previous" data-icon="chevronLeft"></button>
+    <button id="viewerNext" class="viewer-nav next" aria-label="Next" data-icon="chevronRight"></button>
   </div>
 
   <div id="toast" role="status"></div>
