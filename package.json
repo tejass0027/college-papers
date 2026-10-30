@@ -1,0 +1,15 @@
+{
+  "name": "college-papers",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Store your college Test 1, Test 2, Exam papers, module notes and Q&A by semester and subject",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "multer": "^2.0.2"
+  }
+}

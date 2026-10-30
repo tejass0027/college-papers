@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#4f46e5">
+  <title>My Papers</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <button id="menuBtn" class="icon-btn only-mobile" aria-label="Open menu">☰</button>
+    <a href="#" id="homeLink" class="brand">📚 <span>My Papers</span></a>
+    <div class="search-wrap">
+      <input id="search" type="search" placeholder="Search all papers…" autocomplete="off">
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside id="sidebar">
+      <div class="side-head">
+        <span>Semesters</span>
+        <button id="addSem" class="btn small">+ Semester</button>
+      </div>
+      <nav id="semList"></nav>
+    </aside>
+    <div id="backdrop"></div>
+    <main id="main"></main>
+  </div>
+
+  <dialog id="dialog">
+    <form method="dialog" id="dialogForm">
+      <h3 id="dialogTitle"></h3>
+      <p id="dialogText"></p>
+      <input id="dialogInput" maxlength="120" autocomplete="off">
+      <select id="dialogSelect"></select>
+      <div class="dialog-actions">
+        <!-- OK comes first so pressing Enter picks it; CSS shows it on the right -->
+        <button value="ok" id="dialogOk" class="btn primary">OK</button>
+        <button value="cancel" formnovalidate class="btn ghost">Cancel</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="viewer" class="viewer" hidden>
+    <div class="viewer-bar">
+      <span id="viewerTitle"></span>
+      <div class="viewer-actions">
+        <a id="viewerOpen" class="btn small ghost" target="_blank" rel="noopener">Open in new tab</a>
+        <a id="viewerDownload" class="btn small ghost">Download</a>
+        <button id="viewerClose" class="icon-btn" aria-label="Close">✕</button>
+      </div>
+    </div>
+    <div id="viewerBody"></div>
+    <button id="viewerPrev" class="viewer-nav prev" aria-label="Previous">‹</button>
+    <button id="viewerNext" class="viewer-nav next" aria-label="Next">›</button>
+  </div>
+
+  <div id="toast" role="status"></div>
+  <script src="/app.js"></script>
+</body>
+</html>
